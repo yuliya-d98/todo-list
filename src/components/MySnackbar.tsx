@@ -22,7 +22,14 @@ const CustomizedSnackbars = (props: CustomizedSnackbarsProps) => {
     <Stack
       sx={{
         position: 'fixed',
-        bottom: 16,
+        bottom: {
+          xs: 90,
+          custom450: 16,
+        },
+        width: {
+          xs: 250,
+          custom450: 'auto',
+        },
         left: 16,
         zIndex: (theme) => theme.zIndex.drawer + 1,
       }}

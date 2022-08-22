@@ -31,7 +31,7 @@ const TodosList = (props: TodosListProps) => {
   };
 
   return (
-    <List component="div" sx={{ px: 'auto' }}>
+    <List component="div">
       <ListItemButton onClick={toggleIsOpen}>
         <ListItemIcon>
           <Badge badgeContent={todos.length} color="primary">
@@ -54,7 +54,7 @@ const TodosList = (props: TodosListProps) => {
               />
             ))
           ) : (
-            <ListItemText secondary="No tasks found" />
+            <ListItemText secondary="No tasks found" sx={{ p: 1 }} />
           )}
         </List>
       </Collapse>

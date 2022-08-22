@@ -5,13 +5,44 @@ import AppHeader from '../components/AppHeader';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 
-const theme = createTheme();
+// https://mui.com/system/getting-started/usage/#responsive-values
+declare module '@mui/material/styles' {
+  interface BreakpointOverrides {
+    xs: true; // not removes the `xs` breakpoint
+    sm: true;
+    md: true;
+    lg: true;
+    xl: true;
+    custom450: true; // adds the `tablet` breakpoint
+  }
+}
+
+const theme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      custom450: 450,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1536,
+    },
+  },
+});
 
 const PageContainer = () => {
+  const styles = {
+    p: {
+      sx: 0,
+      custom450: 3,
+    },
+    mx: 'auto',
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <AppHeader />
-      <Box component="main" maxWidth="sm" sx={{ p: 3, mx: 'auto' }}>
+      <Box component="main" maxWidth="sm" sx={styles}>
         <Toolbar />
         <Outlet />
       </Box>

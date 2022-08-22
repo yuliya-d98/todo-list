@@ -71,9 +71,16 @@ const TodoItem = (props: TodoItemPropsType) => {
     }
   }, [isDone]);
 
+  const styles = {
+    p: {
+      xs: 0,
+      custom450: 1,
+    },
+  };
+
   return (
     <ListItem>
-      <ListItemButton role={undefined} onClick={onCheckboxClick} dense>
+      <ListItemButton sx={styles} role={undefined} onClick={onCheckboxClick} dense>
         <ListItemIcon>
           <Checkbox
             edge="start"
@@ -83,11 +90,7 @@ const TodoItem = (props: TodoItemPropsType) => {
             disabled={isInputDisabled}
           />
         </ListItemIcon>
-        <ListItemText
-          primary={item.id}
-          secondary={item.title}
-          sx={{ display: 'block', width: 'calc(100% - 200px)' }}
-        />
+        <ListItemText primary={item.id} secondary={item.title} />
       </ListItemButton>
       <ListItemIcon>
         <Tooltip title="Edit" arrow>
