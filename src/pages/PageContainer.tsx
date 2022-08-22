@@ -11,7 +11,7 @@ const PageContainer = () => {
   return (
     <ThemeProvider theme={theme}>
       <AppHeader />
-      <Box component="main" maxWidth="sm" sx={{ p: 3 }}>
+      <Box component="main" maxWidth="sm" sx={{ p: 3, mx: 'auto' }}>
         <Toolbar />
         <Outlet />
       </Box>
