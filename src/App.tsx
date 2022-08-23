@@ -1,5 +1,5 @@
 import { Provider } from 'react-redux';
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import AboutPage from './pages/AboutPage';
 import ErrorPage from './pages/errorPage';
 import PageContainer from './pages/PageContainer';
@@ -10,7 +10,8 @@ import store from './redux/store';
 const App = () => {
   return (
     <Provider store={store}>
-      <BrowserRouter>
+      <HashRouter basename="/">
+        {/* <BrowserRouter> */}
         <Routes>
           <Route path="/" element={<PageContainer />}>
             <Route index element={<Navigate to="/welcome" replace />} />
@@ -21,7 +22,8 @@ const App = () => {
             <Route path="*" element={<Navigate to="/error" replace />} />
           </Route>
         </Routes>
-      </BrowserRouter>
+        {/* </BrowserRouter> */}
+      </HashRouter>
     </Provider>
   );
 };
