@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useTypedDispatch } from '../hooks/redux';
 import { changeIsCompleted, removeItem, TodoType } from '../redux/todos-reducer';
 import { v4 as uuidv4 } from 'uuid';
+import { SeverityType, SnackbarInfoType } from './MySnackbar';
 
 import DeleteIcon from '@mui/icons-material/Delete';
 import Checkbox from '@mui/material/Checkbox';
@@ -13,7 +14,6 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemSecondaryAction from '@mui/material/ListItemSecondaryAction';
 import EditIcon from '@mui/icons-material/Edit';
 import Tooltip from '@mui/material/Tooltip';
-import { SeverityType, SnackbarInfoType } from './MySnackbar';
 
 type TodoItemPropsType = {
   item: TodoType;
