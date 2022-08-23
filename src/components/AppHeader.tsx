@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 
 import MenuIcon from '@mui/icons-material/Menu';
 import AppBar from '@mui/material/AppBar';
@@ -18,7 +18,7 @@ import { NavLink } from 'react-router-dom';
 const drawerWidth = 240;
 const navItems = ['Welcome', 'Todos', 'About'];
 
-const AppHeader = () => {
+const AppHeader = memo(() => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
@@ -94,6 +94,6 @@ const AppHeader = () => {
       </Box>
     </>
   );
-};
+});
 
 export default AppHeader;

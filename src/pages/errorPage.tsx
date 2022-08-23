@@ -1,6 +1,7 @@
 import Typography from '@mui/material/Typography';
+import { memo } from 'react';
 
-const ErrorPage = () => {
+const ErrorPage = memo(() => {
   return (
     <Typography
       variant="h6"
@@ -14,6 +15,6 @@ const ErrorPage = () => {
       Oops! Some error occured.
     </Typography>
   );
-};
+});
 
 export default ErrorPage;

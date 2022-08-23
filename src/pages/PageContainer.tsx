@@ -1,6 +1,7 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Outlet } from 'react-router-dom';
 import AppHeader from '../components/AppHeader';
+import { memo } from 'react';
 
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -30,7 +31,7 @@ const theme = createTheme({
   },
 });
 
-const PageContainer = () => {
+const PageContainer = memo(() => {
   const styles = {
     p: {
       sx: 0,
@@ -48,6 +49,6 @@ const PageContainer = () => {
       </Box>
     </ThemeProvider>
   );
-};
+});
 
 export default PageContainer;

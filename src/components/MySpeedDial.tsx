@@ -2,13 +2,13 @@ import CreateIcon from '@mui/icons-material/Create';
 import SpeedDial from '@mui/material/SpeedDial';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
-import { useState } from 'react';
+import { useState, memo } from 'react';
 
 type MySpeedDialProps = {
   setIsModalVisible: (isModalVisible: boolean) => void;
 };
 
-const MySpeedDial = ({ setIsModalVisible }: MySpeedDialProps) => {
+const MySpeedDial = memo(({ setIsModalVisible }: MySpeedDialProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const handleOpen = () => setIsOpen(true);
   const handleClose = () => setIsOpen(false);
@@ -39,6 +39,6 @@ const MySpeedDial = ({ setIsModalVisible }: MySpeedDialProps) => {
       ))}
     </SpeedDial>
   );
-};
+});
 
 export default MySpeedDial;

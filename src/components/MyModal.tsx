@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
@@ -16,7 +16,7 @@ type MyModalProps = {
   setSnackbarInfo: React.Dispatch<React.SetStateAction<SnackbarInfoType[]>>;
 };
 
-const MyModal = (props: MyModalProps) => {
+const MyModal = memo((props: MyModalProps) => {
   const { isModalVisible, idEditing, setIsModalVisible, setSnackbarInfo } = props;
   const [inputText, setInputText] = useState('');
 
@@ -126,7 +126,7 @@ const MyModal = (props: MyModalProps) => {
       </Box>
     </Modal>
   );
-};
+});
 
 export default MyModal;
 

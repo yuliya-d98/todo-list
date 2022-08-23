@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, memo } from 'react';
 import { useTypedDispatch } from '../hooks/redux';
 import { changeIsCompleted, removeItem, TodoType } from '../redux/todos-reducer';
 import { v4 as uuidv4 } from 'uuid';
@@ -22,7 +22,7 @@ type TodoItemPropsType = {
   setSnackbarInfo: React.Dispatch<React.SetStateAction<SnackbarInfoType[]>>;
 };
 
-const TodoItem = (props: TodoItemPropsType) => {
+const TodoItem = memo((props: TodoItemPropsType) => {
   const { item, setIdEditing, setIsModalVisible, setSnackbarInfo } = props;
   const [isDone, setIsDone] = useState(item.completed);
   const [isInputDisabled, setIsInputDisabled] = useState(false);
@@ -108,6 +108,6 @@ const TodoItem = (props: TodoItemPropsType) => {
       </ListItemSecondaryAction>
     </ListItem>
   );
-};
+});
 
 export default TodoItem;

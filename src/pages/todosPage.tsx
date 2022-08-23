@@ -1,5 +1,5 @@
 import Box from '@mui/material/Box';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, memo } from 'react';
 import MyBackdrop from '../components/MyBackdrop';
 import MyModal from '../components/MyModal';
 import CustomizedSnackbars, { SnackbarInfoType } from '../components/MySnackbar';
@@ -8,7 +8,7 @@ import TodosList from '../components/TodosList';
 import { useTypedDispatch, useTypedSelector } from '../hooks/redux';
 import { getTodosThunk } from '../redux/todos-reducer';
 
-const TodosPage = () => {
+const TodosPage = memo(() => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [idEditing, setIdEditing] = useState<number | null>(null);
   const [snackbarInfo, setSnackbarInfo] = useState<SnackbarInfoType[]>([]);
@@ -56,7 +56,7 @@ const TodosPage = () => {
       <MySpeedDial setIsModalVisible={setIsModalVisible} />
     </Box>
   );
-};
+});
 
 export default TodosPage;
 

@@ -1,8 +1,9 @@
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const WelcomePage = () => {
+const WelcomePage = memo(() => {
   const navigate = useNavigate();
 
   const openTodo = () => {
@@ -42,6 +43,6 @@ const WelcomePage = () => {
       </Button>
     </>
   );
-};
+});
 
 export default WelcomePage;

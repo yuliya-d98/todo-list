@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import { TodoType } from '../redux/todos-reducer';
 import TodoItem from './TodoItem';
 
@@ -22,7 +22,7 @@ type TodosListProps = {
   setSnackbarInfo: React.Dispatch<React.SetStateAction<SnackbarInfoType[]>>;
 };
 
-const TodosList = (props: TodosListProps) => {
+const TodosList = memo((props: TodosListProps) => {
   const { todos, title, setIdEditing, setIsModalVisible, setSnackbarInfo } = props;
   const [isOpen, setIsOpen] = useState(true);
 
@@ -60,6 +60,6 @@ const TodosList = (props: TodosListProps) => {
       </Collapse>
     </List>
   );
-};
+});
 
 export default TodosList;

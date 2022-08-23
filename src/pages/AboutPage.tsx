@@ -2,6 +2,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
+import { memo } from 'react';
 
 const links = [
   { href: 'https://github.com/yuliya-d98/', title: 'My Github' },
@@ -22,7 +23,7 @@ const libs = [
   'uuid',
 ];
 
-const AboutPage = () => {
+const AboutPage = memo(() => {
   return (
     <>
       <AboutHeader text="About me:" />
@@ -31,6 +32,10 @@ const AboutPage = () => {
           typography: 'body1',
           '& > :not(style) + :not(style)': {
             ml: 3,
+          },
+          px: {
+            xs: 2,
+            custom450: 0,
           },
         }}
       >
@@ -41,10 +46,29 @@ const AboutPage = () => {
         ))}
       </Box>
       <AboutHeader text="About app:" />
-      <Typography variant="body1" gutterBottom>
+      <Typography
+        variant="body1"
+        gutterBottom
+        sx={{
+          px: {
+            xs: 2,
+            custom450: 0,
+          },
+        }}
+      >
         While creating this app I used such libraries as:
       </Typography>
-      <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          gap: 2,
+          flexWrap: 'wrap',
+          px: {
+            xs: 2,
+            custom450: 0,
+          },
+        }}
+      >
         {libs.map((item) => (
           <Button variant="contained" key={item} sx={{ cursor: 'default' }}>
             {item}
@@ -53,14 +77,14 @@ const AboutPage = () => {
       </Box>
     </>
   );
-};
+});
 
 export default AboutPage;
 
 type AboutHeaderProps = {
   text: string;
 };
-const AboutHeader = ({ text }: AboutHeaderProps) => {
+const AboutHeader = memo(({ text }: AboutHeaderProps) => {
   return (
     <Typography
       variant="h6"
@@ -74,4 +98,4 @@ const AboutHeader = ({ text }: AboutHeaderProps) => {
       {text}
     </Typography>
   );
-};
+});

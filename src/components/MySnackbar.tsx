@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import Stack from '@mui/material/Stack';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
@@ -15,7 +15,7 @@ type CustomizedSnackbarsProps = {
   setSnackbarInfo: React.Dispatch<React.SetStateAction<SnackbarInfoType[]>>;
 };
 
-const CustomizedSnackbars = (props: CustomizedSnackbarsProps) => {
+const CustomizedSnackbars = memo((props: CustomizedSnackbarsProps) => {
   const { snackbarInfo, setSnackbarInfo } = props;
 
   return (
@@ -40,7 +40,7 @@ const CustomizedSnackbars = (props: CustomizedSnackbarsProps) => {
       ))}
     </Stack>
   );
-};
+});
 
 export default CustomizedSnackbars;
 
@@ -49,7 +49,7 @@ type MyAlertProps = {
   setSnackbarInfo: React.Dispatch<React.SetStateAction<SnackbarInfoType[]>>;
 };
 
-const MyAlert = (props: MyAlertProps) => {
+const MyAlert = memo((props: MyAlertProps) => {
   const { info, setSnackbarInfo } = props;
 
   const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
@@ -72,4 +72,4 @@ const MyAlert = (props: MyAlertProps) => {
       </Alert>
     </Snackbar>
   );
-};
+});
